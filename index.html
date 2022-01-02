@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Decleration for making your app more secure. Get more info at https://content-security-policy.com/  -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <!-- Required for Monaca compatiblity -->
+    <script src="components/loader.js"></script>
+    <!-- Required for Monaca compatiblity -->
+    <link rel="stylesheet" href="components/loader.css">
+
+
+    <!-- Reference the JQM CSS to unlock basic sytling -->
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <!-- Custom colors from Themeroller
+        https://themeroller.jquerymobile.com:443/?ver=1.4.5&style_id=20210629-11
+    -->
+    <link rel="stylesheet" href="css/colors.min.css">
+    <!-- Custom CSS Code with fonts, and etc -->
+    <link rel="stylesheet" href="css/stylesheet.css" >
+    <!-- Put the JS before the end of the file -->
+</head>
+<body>
+<!-- 
+        Every screen of content is a <section>
+        Every <section> needs a data-role Attribute of page Value to seperate every screen
+        Every <section> needs a UNIQUE id Attribute (name however you wish "no spaces")
+        If you need a top area: <header> + data-role="header"
+        " " bottom: <footer> data-role="footer"
+        You must have an <article> for your main content with the specific Attributes
+            role="main" + class="ui-content"
+        Often use data-XYZ but sometimes use something else 
+    -->
+    <section data-role="page" id="kittycat">
+
+        <article role="main" class="ui-content">
+            <p><img src="img/ww.jpg" alt="Wonder Woman advertising CBDB" class="imgFull"></p>
+            <a href="#pgSignUp" data-role="button" data-icon="star" data-iconpos="right" data-transition="flow">Sign Up</a>
+            <a href="#pgLogIn" data-role="button" data-icon="xyhz" data-iconpos="right" data-transition="flow">Log In</a>
+        </article>
+
+    </section>
+
+    <section data-role="page" data-theme="c" id="pgSignUp">
+        <!-- "Back button" code is unique -->
+        <header data-role="header" data-add-back-btn="true">
+            <!-- Reserve H1 for <header>-->
+            <h1>Sign Up</h1>
+        </header>
+        <article role="main" class="ui-content">
+            <!-- Sign Up Form -->
+            <form id="formSignUp">
+                <label for="inputEmailSignUp">Email:</label>
+                    <input type="email" required placeholder="diana@wonderwoman.org" name="inputEmailSignUp" id="inputEmailSignUp">
+                <label for="inputPasswordSignUp">Password:</label>
+                    <input type="password" required placeholder="Spider99!" name="inputPasswordSignUp" id="inputPasswordSignUp">
+                <label for="inputPasswordConfirmSignUp">Confirm Password:</label>
+                    <input type="password" required placeholder="Spider99!" name="inputPasswordConfirmSignUp" id="inputPasswordConfirmSignUp">
+                <input type="submit" value="Create Account">
+                <input type="reset" value="Clear">
+            </form>
+        </article> 
+    </section>
+    <!-- Reserve H4 for <footer> -->
+
+    <!-- NO # in id="" here but YES # in href="#" -->
+        <section data-role="page" data-theme="d" id="pgLogIn">
+            <header data-role="header" data-add-back-btn="true">
+                <!-- Reserve H1 for <header>-->
+                <h1>Log In</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <!-- <form> for logging in to app -->
+                <form id="formLogIn">
+                    <label for="inputEmailLogIn">Email</label>
+                        <input type="email" required placeholder="bruce@wane.biz" name="inputEmailLogIn" id="inputEmailLogIn">
+                    <label for="inputPasswordLogIn">Password</label>
+                        <input type="password" required placeholder="Spider99!" name="inputPasswordLogIn" id="inputPasswordLogIn">
+                    <input type="submit" value="Log In">
+                    <input type="reset" value="Clear">
+                </form>
+
+            </article> 
+        </section>
+
+        <section data-role="page" id="pgHome">
+            <header data-role="header">
+                <!-- Reserve H1 for <header>-->
+                <h1>Home</h1>
+                <a href="#pgOptions" data-transition="pop" data-icon="gear" class="ui-btn-right" data-iconpos="notext">Options</a>
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#pgHome" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+                        <li><a href="#pgSave" data-icon="info">Save</a></li>
+                        <li><a href="#pgView" data-icon="mail">View</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <article role="main" class="ui-content">
+                <h2>Welcome</h2>
+                <p><img src="img/spider.jpg" alt="CBDB App Endorsed by Spider-Man" class="imgFull"></p>
+            </article> 
+            <footer data-role="footer" data-position="fixed">
+                <h4 class="userEmail">Footer</h4>
+            </footer>
+        </section>
+
+        <section data-role="page" id="pgSave">
+            <header data-role="header">
+                <!-- Reserve H1 for <header>-->
+                <h1>Save</h1>
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#pgHome" data-icon="home">Home</a></li>
+                        <li><a href="#pgSave" data-icon="info" class="ui-btn-active ui-state-persist">Save</a></li>
+                        <li><a href="#pgView" data-icon="mail">View</a></li>
+                        <li><a href="#pgOptions" data-icon="phone">Options</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <article role="main" class="ui-content">
+                <!-- Form to gather the data the User is saving -->
+                <form id="formSaveComic">
+                    <!-- Fieldset for grouping logical elements of a form -->
+                    <fieldset>
+                        <legend>Requied</legend>
+                        <label for="inputTitleSave">Title:</label>
+                            <input required type="text" placeholder="Batman" name="inputTitleSave"  id="inputTitleSave">
+                        <label for="inputNumberSave">Number:</label>
+                            <input required type="number" placeholder="1" name="inputNumberSave"    id="inputNumberSave">
+                        <label for="inputYearSave">Year:</label>
+                            <input required type="number" placeholder="1940" name="inputYearSave"   id="inputYearSave">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Optional</legend>
+                        <label for="inputPublisherSave">Publisher:</label>
+                            <input type="text" placeholder="DC Comics" name="inputPublisherSave"    id="inputPublisherSave">
+                        <label for="inputNotesSave">Notes:</label>
+                            <textarea placeholder="First issue of self-titled series" name="inputNotesSave" id="inputNotesSave"></textarea>
+                            <!-- Generic button for taking photo -->
+                            <input type="button" value="Snap Pic" id="btnTakePhoto">
+                            <!-- Input filed that stores the path to the snapped photo add type="hidden" in production -->
+                            <input type="text" placeholder="PHOTO" disabled id="inPhotoSaveComic">
+                            <!-- Placeholder to display snapped photo -->
+                            <img src="#" style="display: none;" id="inPhotoSaveImg">
+                    </fieldset>
+                    <input type="reset" value="Clear"> 
+                    <input type="submit" value="Save">
+                </form>
+            </article> 
+            <footer data-role="footer" data-position="fixed">
+                <h4>Footer</h4>
+            </footer>
+        </section>
+
+        <section data-role="page" id="pgView">
+            <header data-role="header">
+                <!-- Reserve H1 for <header>-->
+                <h1>View</h1>
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#pgHome" data-icon="home">Home</a></li>
+                        <li><a href="#pgSave" data-icon="info">Save</a></li>
+                        <li><a href="#pgView" data-icon="mail" class="ui-btn-active ui-state-persist">View</a></li>
+                        <li><a href="#pgOptions" data-icon="phone">Options</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <article role="main" class="ui-content">
+              <!-- Generic container to dynamically display Comic data -->
+                <div id="divViewComics">TBD</div>
+            </article> 
+            <footer data-role="footer" data-position="fixed">
+                <h4>Footer</h4>
+            </footer>
+        </section>
+
+        <section data-role="page" data-dialog="true" id="pgOptions">
+            <header data-role="header">
+                <!-- Reserve H1 for <header>-->
+                <h1>Options</h1>
+            </header>
+            <article role="main" class="ui-content">
+                <!-- Button for deleting the whole database. Has an ID but no link -->
+                <a href="#" data-role="button" id="btnDeleteCollection">Delete Collection</a>
+                <!-- Link is now a button, has an ID, and no actual link -->
+                <a href="#" data-role="button" id="btnLogOut">Log out</a>
+            </article> 
+        </section>
+
+        <!-- Popup screen for comic details -->
+        <section data-role="page" id="pgComicViewEdit">
+          <header data-role="header">
+            <h1>Edit</h1>
+          </header>
+          <article role="main" class="ui-content">
+            <!-- Pre-populated form for viewing/editing/deleting comic details -->
+            <form id="fmEditComicInfo">
+              <label for="inTitleEdit">Title: </label>
+               <input type="text" name="inTitleEdit" id="inTitleEdit">
+              <label for="inNumberEdit">Number: </label>
+               <input type="number" name="inNumberEdit" id="inNumberEdit">
+              <label for="inYearEdit">Year: </label>
+               <input type="number" name="inYearEdit" id="inYearEdit">
+              <label for="inPublisherEdit">Publisher: </label>
+               <input type="text" name="inPublisherEdit" id="inPublisherEdit">
+               <label for="inNotesEdit">Notes: </label>
+                <textarea name="inNotesEdit" id="inNotesEdit"></textarea>
+              <!-- Display the photo here -->
+              <img src="" id="imgPhotoEdit">
+              <!-- Keep track of its path -->
+               <input type="hidden" id="inPhotoEdit">
+
+               <input type="submit" value="Update">
+               <input type="button" value="Delete" id="btnDeleteComic">
+               <input type="button" value="Cancel" id="btnEditCancel">
+            </form>
+          </article>
+        </section>
+
+<!-- Moved from <head> above down to here. Best practice ot have JS at the end, to ensure it can access HTML/CSS correctly -->
+  <!-- Reference the jQuery JS file to access JavaScript power features  -->
+	<script src="js/jquery-1.11.0.min.js"></script>
+    <!-- Reference the jQM JS file to access interface building features -->
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <!-- PouchDB for databases -->
+  <script src="js/pouchdb-7.2.1.min.js"></script>
+    <!-- Custom JS code for interactivity, etc -->
+    <script src="js/myjs.js"></script>
+
+</body>
+</html>
